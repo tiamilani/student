@@ -18,7 +18,7 @@ exports.addStudent = function(req, response) {
 
     assignments.push(json);
 
-	response.end(json);
+	response.end(JSON.stringify(json));
 };
 
 exports.modifyStudent = function(req, response) {
