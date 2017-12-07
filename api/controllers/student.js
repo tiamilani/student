@@ -43,7 +43,7 @@ exports.addStudent = function(req, response) {
 
 	if(assignment_type == null || assignment_type == undefined){
 		response.writeHead(404, {"Content-Type": "application/json"});
-		response.json({
+		response.end({
 			code: "001",
 			message: "assignment type not found"
 		});
@@ -54,7 +54,7 @@ exports.addStudent = function(req, response) {
 
 	if(student_id == null || student_id == undefined){
 		response.writeHead(404, {"Content-Type": "application/json"});
-		response.json({
+		response.end({
 			code: "002",
 			message: "Student Id not found"
 		});
@@ -65,7 +65,7 @@ exports.addStudent = function(req, response) {
 
 	if(assigment_id == null || assigment_id == undefined){
 		response.writeHead(404, {"Content-Type": "application/json"});
-		response.json({
+		response.end({
 			code: "003",
 			message: "assignment Id not found"
 		});
@@ -76,7 +76,7 @@ exports.addStudent = function(req, response) {
 
 	if(Content == null || Content == undefined){
 		response.writeHead(404, {"Content-Type": "application/json"});
-		response.json({
+		response.end({
 			code: "004",
 			message: "Content not found"
 		});
