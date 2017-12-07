@@ -16,6 +16,24 @@ exports.getStudent = function(req, response) {
 				esami.splice(i, 1);
 	}
 
+	var assignment_type = req.query.assignment_type;
+
+	if(assignment_type != null && assignment_type != undefined){
+		i = esami.length;
+		while(i--)
+			if(esami[i]['assignmentType'] != assignment_type)
+				esami.splice(i, 1);
+	}
+
+	var assigment_id = req.query.assigment_id;
+
+	if(assigment_id != null && assigment_id != undefined){
+		i = esami.length;
+		while(i--)
+			if(esami[i]['assigmentId'] != assigment_id)
+				esami.splice(i, 1);
+	}
+
 	response.writeHead(200, {"Content-Type": "application/json"});
 	response.end(JSON.stringify(esami));
 };
@@ -79,7 +97,6 @@ exports.addStudent = function(req, response) {
 };
 
 exports.modifyStudent = function(req, response) {
-	console.log("Request handler list_all_tasks was called.");
 	response.writeHead(200, {"Content-Type": "application/json"});
 	response.end(json);
 };
