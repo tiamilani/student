@@ -46,7 +46,7 @@ exports.addStudent = function(req, response) {
 		response.end(JSON.stringify({
 			code: "001",
 			message: "assignment type not found"
-		});
+		}));
 		return;
 	}
 
