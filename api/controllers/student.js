@@ -16,7 +16,7 @@ exports.addStudent = function(req, response) {
         Content: content
     };
 
-    assignment.push(json);
+    assignments.push(json);
 
 	response.end(json);
 };
