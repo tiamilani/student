@@ -23,7 +23,7 @@ exports.getStudent = function(req, response) {
 exports.addStudent = function(req, response) {
     var assignment_type = req.body.assignment_type;
 
-	if(assignment_type == null || assignment_Type == undefined){
+	if(assignment_type == null || assignment_type == undefined){
 		response.writeHead(404, {"Content-Type": "application/json"});
 		response.json({
 			code: "001",
