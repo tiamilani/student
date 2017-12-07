@@ -29,6 +29,7 @@ exports.addStudent = function(req, response) {
 			code: "001",
 			message: "assignment type not found"
 		});
+		return;
 	}
 
     var student_id  = req.body.student_id;
@@ -39,6 +40,7 @@ exports.addStudent = function(req, response) {
 			code: "002",
 			message: "Student Id not found"
 		});
+		return;
 	}
 
     var assigment_id  = req.body.assigment_id
@@ -49,6 +51,7 @@ exports.addStudent = function(req, response) {
 			code: "003",
 			message: "assignment Id not found"
 		});
+		return;
 	}
 
     var Content  = req.body.content;
@@ -59,6 +62,7 @@ exports.addStudent = function(req, response) {
 			code: "004",
 			message: "Content not found"
 		});
+		return;
 	}
 
     var json ={
