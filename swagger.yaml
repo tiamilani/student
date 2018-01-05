@@ -1,0 +1,86 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: "student"
+  description: Una semplice api di esempio che viene utilizzata per gestire gli esami degli studenti
+  contact:
+    name: Mattia Milani
+    email: mattia.milani10@gmail.com
+  license:
+    name: MIT
+    url: http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT
+host: studentassignment.herokuapp.com
+basePath: /
+schemes:
+  - http
+consumes:
+  - application/json
+paths:
+  /assignment:
+    post:
+      description: |
+        Api utilizzata per inviare l'esame di uno studente
+      operationId: student
+      parameters:
+        - name: student
+          in: body
+          description: student assignment
+          required: true
+          schema:
+            $ref: '#/definitions/NewStudent'
+      responses:
+        200:
+          description: inserito correttamente
+          schema:
+            $ref: '#/definitions/corretto'
+        404:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  corretto:
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+  NewStudent:
+    required:
+      - assignment_type
+      - student_id
+      - assigment_id
+      - content
+    properties:
+      assignment_type:
+        type: string
+      student_id:
+        type: string
+      assigment_id:
+        type: string
+      content:
+        type: object
+        properties:
+          domande:
+            type: array
+            items:
+              type: string
+            description: Vettore contente le domande
+          risposte:
+            type: array
+            items:
+              type: string
+            description: Vettore contenete le risposte
+  Error:
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
